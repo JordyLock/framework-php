@@ -4,49 +4,27 @@ require(ROOT . "model/StudentModel.php");
 
 function index()
 {
-	render("student/index", array(
+	render('student/index', array(
 		'students' => getAllStudents()
 	));
 }
 
-function create()
+function create() 
 {
-	render("student/create");
+
 }
 
-function createSave()
+function edit($student_id)
 {
-	if (!createStudent()) {
-		header("Location:" . URL . "error/index");
-		exit();
-	}
 
-	header("Location:" . URL . "student/index");
-}
-
-function edit($id)
-{
-	render("student/edit", array(
-		'student' => getStudent($id)
-	));
 }
 
 function editSave()
 {
-	if (!editStudent()) {
-		header("Location:" . URL . "error/index");
-		exit();
-	}
 
-	header("Location:" . URL . "student/index");
-} 
+}
 
-function delete($id)
+function delete()
 {
-	if (!deleteStudent($id)) {
-		header("Location:" . URL . "error/index");
-		exit();
-	}
 
-	header("Location:" . URL . "student/index");
 }
